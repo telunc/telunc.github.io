@@ -19,8 +19,37 @@ $message = strip_tags(htmlspecialchars($_POST['message']));
 $to = 'telunchen@hotmail.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
 $email_subject = "Website Contact Form:  $name";
 $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nPhone: $phone\n\nMessage:\n$message";
-$headers = "From: noreply@yourdomain.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
-$headers .= "Reply-To: $email_address";	
-mail($to,$email_subject,$email_body,$headers);
-return true;			
+
+
+
+$sendgrid_uri = 'https://api.sendgrid.com/';
+$sendgrid_key = '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';
+
+$params = array(
+   'from' => "andy.chen@eco-service.ca", //send it from our own address
+   'fromname' => $name,
+   'to' => $to,
+   'toname' => 'Andy Chen',
+   'replyto' => $email_address,
+   'subject'=> $email_subject,
+   'html' => $email_body,
+   'text' => strip_tags($email_body),
+);
+
+$request =  $sendgrid_uri.'api/mail.send.json';
+
+// Generate curl request
+$session = curl_init($request);
+curl_setopt($session, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+curl_setopt($session, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $sendgrid_key));
+curl_setopt($session, CURLOPT_POST, true);
+curl_setopt($session, CURLOPT_POSTFIELDS, $params);
+curl_setopt($session, CURLOPT_HEADER, false);
+curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+
+// obtain response
+$response = curl_exec($session);
+curl_close($session);
+
+return json_decode($response);
 ?>
