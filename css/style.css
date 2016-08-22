@@ -1,9 +1,50 @@
 /* Custom CSS */
 
+/* text */
+.dot{
+	font-size:8px;
+	vertical-align:middle
+}
+
+/* buttons */
+.btn-view {
+    font-size: 20px;
+    letter-spacing: 1px;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    text-align: center;
+    width: 222px;
+    height: 44px;
+    display: block;
+    border: 2px solid
+}
+
+.btn-view:hover{
+    color:white !important;
+    background-color: #18BC9C;
+}
+
+.btn-view:focus{
+	color: #18BC9C;
+}
+
+/* img */
+.img-center{
+	margin: 0 auto;
+}
+
+/* screen widths */
 @media (max-width: 1200px) {
 	.banner-phone{
 		width: 0;
 		height: 0;
 		opacity: 0;
+	}
+	.portfolio-text{
+		text-align: center;
+	}
+	.btn-view{
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
