@@ -2,6 +2,8 @@
 
 @media (max-width: 1200px) {
 	.banner-phone{
-		display: none;
+		width: 0;
+		height: 0;
+		opacity: 0;
 	}
 }

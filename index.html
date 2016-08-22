@@ -71,10 +71,10 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-lg-offset-2 banner-phone">
+                <div class="col-lg-3 banner-phone" id="banner-phone">
                     <img class="img-responsive" src="img/portfolio/designguru_phone.png" alt="">
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-lg-offset-2">
                     <br />
                     <img class="img-responsive" src="img/profile.png" alt="">
                     <div class="intro-text">
@@ -523,6 +523,7 @@
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
+    <script   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -574,6 +575,12 @@
                 $('#success > .alert-success').append('</div>');
             }
             return false;
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#banner-phone").animate({left:200, opacity:"show"},1500);
         });
     </script>
 
