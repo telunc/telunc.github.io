@@ -381,6 +381,8 @@
     <script>
         $("#banner-img").on("load",function(){
             $("#banner-phone").animate({left:200, opacity:1},1500);
+        }).each(function() {
+            if(this.complete) $(this).load();
         });
     </script>
 
