@@ -65,4 +65,7 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
+    .mobile-br{
+        padding-top: 25px;
+    }
 }
