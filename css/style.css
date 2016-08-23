@@ -28,6 +28,24 @@
 	color: #18BC9C;
 }
 
+.success .btn-view {
+	color: white !important;
+    font-size: 20px;
+    letter-spacing: 1px;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    text-align: center;
+    width: 222px;
+    height: 44px;
+    display: block;
+    border: 2px solid
+}
+
+.success .btn-view:hover{
+    color:#18BC9C !important;
+    background-color: white;
+}
+
 /* img */
 .img-center{
 	margin: 0 auto;
