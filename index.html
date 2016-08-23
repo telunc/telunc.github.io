@@ -72,7 +72,7 @@
         <div class="container">
             <div class="row">
                 <div style="opacity:0;" class="col-lg-3 banner-phone" id="banner-phone">
-                    <img class="img-responsive" src="img/portfolio/designguru_phone.png" alt="">
+                    <img class="img-responsive" src="img/portfolio/designguru_phone.png" id="banner-img" alt="">
                 </div>
                 <div class="col-lg-6 col-lg-offset-2">
                     <br />
@@ -112,7 +112,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-lg-offset-1 col-lg-push-6">
-                        <img class="img-responsive img-center" async="true" src="img/portfolio/soccermvp.gif" alt="">
+                        <img class="img-responsive img-center" src="img/portfolio/soccermvp.gif" alt="">
                     </div>
                     <div class="col-lg-6 col-lg-pull-5 portfolio-text">
                         <br />
@@ -379,7 +379,7 @@
     </script>
 
     <script>
-        $(window).on("load",function(){
+        $("#banner-img").on("load",function(){
             $("#banner-phone").animate({left:200, opacity:1},1500);
         });
     </script>
