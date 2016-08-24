@@ -91,7 +91,7 @@
     <div id="portfolio">
         <section>
             <div class="container">
-                <div class="row hideme">
+                <div class="row hideme" id="ecowaterless">
                     <div class="col-lg-5">
                         <img class="img-responsive img-center" src="img/portfolio/ecowaterless.png" alt="">
                     </div>
@@ -110,7 +110,7 @@
         </section>
         <section class="success">
             <div class="container">
-                <div class="row hideme">
+                <div class="row hideme" id="soccermvp">
                     <div class="col-lg-4 col-lg-offset-1 col-lg-push-6">
                         <img class="img-responsive img-center" src="img/portfolio/soccermvp.gif" alt="">
                     </div>
@@ -127,7 +127,7 @@
         </section>
         <section>
             <div class="container">
-                <div class="row hideme">
+                <div class="row hideme" id="designguru">
                     <div class="col-lg-5">
                         <img class="img-responsive img-center" src="img/portfolio/designguru.png" alt="">
                     </div>
@@ -154,11 +154,11 @@
                 </div>
             </div>
             <div class="row">
-                <div style="text-align:center">
-                <div class="circle" id="circle1"><strong>Objective-<br/>C</strong></div>
-                <div class="circle" id="circle2"><strong>Java</strong></div>
-                <div class="circle" id="circle3"><strong>Swift</strong></div>
-                <div class="circle" id="circle4"><strong>PHP</strong></div>
+                <div style="text-align:center" id="circles">
+                    <div class="circle" id="circle1"><strong>Objective-<br/>C</strong></div>
+                    <div class="circle" id="circle2"><strong>Java</strong></div>
+                    <div class="circle" id="circle3"><strong>Swift</strong></div>
+                    <div class="circle" id="circle4"><strong>PHP</strong></div>
                 </div>
             </div>
         </div>
@@ -356,6 +356,9 @@
     <!-- Theme JavaScript -->
     <script src="js/freelancer.min.js"></script>
 
+    <!-- inview.js -->
+    <script src="js/inview.min.js"></script>
+
     <!-- formspree -->
     <script>
         $("#sendMessage").on("click", function() {
@@ -407,72 +410,73 @@
 
     <!-- fade animation -->
     <script>
-        $(document).ready(function() {
-            /* Check the location of each desired element */
-            $('.hideme').each( function(i){
-                var top_of_object = $(this).offset().top;
-                var bottom_of_window = $(window).scrollTop() + $(window).height();
 
-                /* If the object is completely visible in the window, fade it it */
-                if( bottom_of_window > top_of_object ){
-                    $(this).animate({'opacity':'1'},500);
-                }
-            });
-            /* Every time the window is scrolled ... */
-            $(window).scroll( function(){
-                /* Check the location of each desired element */
-                $('.hideme').each( function(i){
-                    var middle_of_object = $(this).offset().top + $(this).outerHeight()/2;
-                    var bottom_of_window = $(window).scrollTop() + $(window).height();
+    $('#ecowaterless').on('inview',function(event, isInView){
+        if(isInView){
+            $(this).animate({'opacity':'1'},1500);
+        }
+        else{
+            $(this).css('opacity','0');
+        }
+    });
 
-                    /* If the object is completely visible in the window, fade it it */
-                    if( bottom_of_window > middle_of_object ){
-                        $(this).animate({'opacity':'1'},500);
-                    }
-                }); 
-            });
-        });
+    $('#soccermvp').on('inview',function(event, isInView){
+        if(isInView){
+            $(this).animate({'opacity':'1'},1500);
+        }
+        else{
+            $(this).css('opacity','0');
+        }
+    });
+
+    $('#designguru').on('inview',function(event, isInView){
+        if(isInView){
+            $(this).animate({'opacity':'1'},1500);
+        }
+        else{
+            $(this).css('opacity','0');
+        }
+    });
     </script>
 
     <!-- circle -->
-    <script src="js/inview.min.js"></script>
     <script src="js/circle-progress.js"></script>
     <script>
-    $('#about').on('inview',function(event, isInView){
+    $('#circles').on('inview',function(event, isInView){
         if(isInView){
-        $('#circle1').circleProgress({
-            startAngle:0.7853*6,
-            value: 0.9,
-            size: 150,
-            fill: {
-                gradient: ["white"]
-            }
-        });
-        $('#circle2').circleProgress({
-            startAngle:0.7853*6,
-            value: 0.8,
-            size: 150,
-            fill: {
-                gradient: ["white"]
-            }
-        });
-        $('#circle3').circleProgress({
-            startAngle:0.7853*6,
-            value: 0.70,
-            size: 150,
-            fill: {
-                gradient: ["white"]
-            }
-        });
-        $('#circle4').circleProgress({
-            startAngle:0.7853*6,
-            value: 0.9,
-            size: 150,
-            fill: {
-                gradient: ["white"]
-            }
-        });
-    }
+            $('#circle1').circleProgress({
+                startAngle:0.7853*6,
+                value: 0.9,
+                size: 150,
+                fill: {
+                    gradient: ["white"]
+                }
+            });
+            $('#circle2').circleProgress({
+                startAngle:0.7853*6,
+                value: 0.8,
+                size: 150,
+                fill: {
+                    gradient: ["white"]
+                }
+            });
+            $('#circle3').circleProgress({
+                startAngle:0.7853*6,
+                value: 0.70,
+                size: 150,
+                fill: {
+                    gradient: ["white"]
+                }
+            });
+            $('#circle4').circleProgress({
+                startAngle:0.7853*6,
+                value: 0.9,
+                size: 150,
+                fill: {
+                    gradient: ["white"]
+                }
+            });
+        }
     });
     </script>
 
