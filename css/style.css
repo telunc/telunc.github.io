@@ -51,6 +51,31 @@
 	margin: 0 auto;
 }
 
+/* hide row */
+.hideme{
+    opacity: 0
+}
+
+/*circle*/
+
+.circle {
+    width: 220px;
+    margin: 6px 6px 20px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    line-height: 1.2;
+}
+.circle strong {
+    position: absolute;
+    top: 37%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 26px;
+    font-size: 21px;
+}
+
 /* screen widths */
 @media (max-width: 1200px) {
 	.banner-phone{

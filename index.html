@@ -55,7 +55,7 @@
                         <a href="#portfolio">Portfolio</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a href="#about">Skills</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
@@ -91,7 +91,7 @@
     <div id="portfolio">
         <section>
             <div class="container">
-                <div class="row">
+                <div class="row hideme">
                     <div class="col-lg-5">
                         <img class="img-responsive img-center" src="img/portfolio/ecowaterless.png" alt="">
                     </div>
@@ -110,7 +110,7 @@
         </section>
         <section class="success">
             <div class="container">
-                <div class="row">
+                <div class="row hideme">
                     <div class="col-lg-4 col-lg-offset-1 col-lg-push-6">
                         <img class="img-responsive img-center" src="img/portfolio/soccermvp.gif" alt="">
                     </div>
@@ -127,17 +127,15 @@
         </section>
         <section>
             <div class="container">
-                <div class="row">
+                <div class="row hideme">
                     <div class="col-lg-5">
-                        <img class="img-responsive img-center" src="img/portfolio/ecowaterless.png" alt="">
+                        <img class="img-responsive img-center" src="img/portfolio/designguru.png" alt="">
                     </div>
-                    <div class="col-lg-6 col-lg-offset-1 portfolio-text">
+                    <div style="padding-top:60px" class="col-lg-6 col-lg-offset-1 portfolio-text">
                         <br />
                         <h2>Design Guru</h2><br /><br />
-                        <p>Now serves as the world's leader in waterless car washes. It connects and enables consumer and car wash technician by cloud scheduling system, mobile ordering, and more.</p><br />
-                        <p style="color:#9b9b9b;">iOS 
-                            <span class="dot">•</span> 
-                            Web Development
+                        <p>A single platform solution. Get a chance to pitch your ideas to industry guru through our custom instant messager.</p><br />
+                        <p style="color:#9b9b9b;">iOS Development
                         </p><br />
                         <a href="#portfolioModal1" target="_blank" data-toggle="modal" class="btn btn-view">View Project</a>
                     </div>
@@ -151,22 +149,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>About</h2>
-                    <hr class="star-light">
+                    <h2>My Skills</h2>
+                    <hr class="star-light"><br />
                 </div>
             </div>
             <div class="row">
-                <!-- <div class="col-lg-4 col-lg-offset-2">
-                    <p>Something here.</p>
+                <div style="text-align:center">
+                <div class="circle" id="circle1"><strong>Objective-<br/>C</strong></div>
+                <div class="circle" id="circle2"><strong>Java</strong></div>
+                <div class="circle" id="circle3"><strong>Swift</strong></div>
+                <div class="circle" id="circle4"><strong>PHP</strong></div>
                 </div>
-                <div class="col-lg-4">
-                    <p>Some other things here</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Theme
-                    </a>
-                </div> -->
             </div>
         </div>
     </section>
@@ -182,8 +175,6 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
                     <!-- <form name="sentMessage" id="contactForm" novalidate> -->
                     <form id="contactform" method="post">
                         <div class="row control-group">
@@ -331,10 +322,6 @@
                             <img src="img/portfolio/soccermvp_team.jpg" class="img-responsive img-centered" alt="">
                             <p>A game had to relect the spirit of the developers and the value of the team. In search of inspiration, I went on a journey with my two best friends, Frank and Colin, to Stanely Park. As we walked around the park, we saw a few kids playing soccer. We turn to each other and Soccer MVP was born.</p>
                             <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="#">Self Passion</a>
-                                    </strong>
-                                </li>
                                 <li>Date:
                                     <strong><a href="#">May 2016</a>
                                     </strong>
@@ -409,6 +396,7 @@
         });
     </script>
 
+    <!-- banner phone animation -->
     <script>
         $("#banner-img").on("load",function(){
             $("#banner-phone").animate({left:200, opacity:1},1500);
@@ -416,6 +404,78 @@
             if(this.complete) $(this).load();
         });
     </script>
+
+    <!-- fade animation -->
+    <script>
+        $(document).ready(function() {
+            /* Check the location of each desired element */
+            $('.hideme').each( function(i){
+                var top_of_object = $(this).offset().top;
+                var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+                /* If the object is completely visible in the window, fade it it */
+                if( bottom_of_window > top_of_object ){
+                    $(this).animate({'opacity':'1'},500);
+                }
+            });
+            /* Every time the window is scrolled ... */
+            $(window).scroll( function(){
+                /* Check the location of each desired element */
+                $('.hideme').each( function(i){
+                    var middle_of_object = $(this).offset().top + $(this).outerHeight()/2;
+                    var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+                    /* If the object is completely visible in the window, fade it it */
+                    if( bottom_of_window > middle_of_object ){
+                        $(this).animate({'opacity':'1'},500);
+                    }
+                }); 
+            });
+        });
+    </script>
+
+    <!-- circle -->
+    <script src="js/inview.min.js"></script>
+    <script src="js/circle-progress.js"></script>
+    <script>
+    $('#about').on('inview',function(event, isInView){
+        if(isInView){
+        $('#circle1').circleProgress({
+            startAngle:0.7853*6,
+            value: 0.9,
+            size: 150,
+            fill: {
+                gradient: ["white"]
+            }
+        });
+        $('#circle2').circleProgress({
+            startAngle:0.7853*6,
+            value: 0.8,
+            size: 150,
+            fill: {
+                gradient: ["white"]
+            }
+        });
+        $('#circle3').circleProgress({
+            startAngle:0.7853*6,
+            value: 0.70,
+            size: 150,
+            fill: {
+                gradient: ["white"]
+            }
+        });
+        $('#circle4').circleProgress({
+            startAngle:0.7853*6,
+            value: 0.9,
+            size: 150,
+            fill: {
+                gradient: ["white"]
+            }
+        });
+    }
+    });
+    </script>
+
 
 </body>
 
