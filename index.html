@@ -138,10 +138,10 @@
                     <div style="padding-top:60px" class="col-lg-6 col-lg-offset-1 portfolio-text">
                         <br />
                         <h2>Design Guru</h2><br /><br />
-                        <p>A single platform solution. Get a chance to pitch your ideas to industry guru through our custom instant messager.</p><br />
+                        <p>A single platform solution. Get a chance to pitch your ideas to industry guru through mobile social network.</p><br />
                         <p style="color:#9b9b9b;">iOS Development
                         </p><br />
-                        <a href="#portfolioModal1" target="_blank" data-toggle="modal" class="btn btn-view">View Project</a>
+                        <a href="#portfolioModal3" target="_blank" data-toggle="modal" class="btn btn-view">View Project</a>
                     </div>
                 </div>
             </div>
@@ -342,6 +342,43 @@
             </div>
         </div>
     </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Design Guru</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/designguru3.png" class="img-responsive img-centered" alt="">
+                            <p>A game had to relect the spirit of the developers and the value of the team. In search of inspiration, I went on a journey with my two best friends, Frank and Colin, to Stanely Park. As we walked around the park, we saw a few kids playing soccer. We turn to each other and Soccer MVP was born.</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="#">Touchstone Technology</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="#">February 2016</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="#">iOS Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -363,127 +400,11 @@
     <!-- inview.js -->
     <script src="js/inview.min.js"></script>
 
-    <!-- formspree -->
-    <script>
-        $("#sendMessage").on("click", function() {
-
-            var name = $("#name").val();
-            var email = $("#email").val();
-            var phone = $("#phone").val();
-            var message = $("#message").val();
-
-            if (name == "" || email == "" || phone == "" || message == ""){
-                $('#success').html("<div class='alert alert-danger'>");
-                $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;").append("</button>");
-                $('#success > .alert-danger').append("<strong>Sorry " + name + ", it seems that you are missing some fields.");
-                $('#success > .alert-danger').append('</div>');
-                //clear all fields
-                $('#contactForm').trigger("reset");
-            }
-            else{
-                $.ajax({
-                    url: "//formspree.io/telunchen@hotmail.com", 
-                    method: "POST",
-                    data: {
-                        name: name,
-                        email: email,
-                        phone: phone,
-                        message: message
-                    },
-                    dataType: "json"
-                });
-                // Enable button & show success message
-                $("#btnSubmit").attr("disabled", false);
-                $('#success').html("<div class='alert alert-success'>");
-                $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;").append("</button>");
-                $('#success > .alert-success').append("<strong>Your message has been sent. </strong>");
-                $('#success > .alert-success').append('</div>');
-            }
-            return false;
-        });
-    </script>
-
-    <!-- banner phone animation -->
-    <script>
-        $("#banner-img").on("load",function(){
-            $("#banner-phone").animate({left:200, opacity:1},1500);
-        }).each(function() {
-            if(this.complete) $(this).load();
-        });
-    </script>
-
-    <!-- fade animation -->
-    <script>
-
-    $('#ecowaterless').on('inview',function(event, isInView){
-        if(isInView){
-            $(this).animate({'opacity':'1'},1500);
-        }
-        else{
-            $(this).css('opacity','0');
-        }
-    });
-
-    $('#soccermvp').on('inview',function(event, isInView){
-        if(isInView){
-            $(this).animate({'opacity':'1'},1500);
-        }
-        else{
-            $(this).css('opacity','0');
-        }
-    });
-
-    $('#designguru').on('inview',function(event, isInView){
-        if(isInView){
-            $(this).animate({'opacity':'1'},1500);
-        }
-        else{
-            $(this).css('opacity','0');
-        }
-    });
-    </script>
-
-    <!-- circle -->
+    <!-- circle.js -->
     <script src="js/circle-progress.js"></script>
-    <script>
-    $('#circles').on('inview',function(event, isInView){
-        if(isInView){
-            $('#circle1').circleProgress({
-                startAngle:0.7853*6,
-                value: 0.9,
-                size: 150,
-                fill: {
-                    gradient: ["white"]
-                }
-            });
-            $('#circle2').circleProgress({
-                startAngle:0.7853*6,
-                value: 0.8,
-                size: 150,
-                fill: {
-                    gradient: ["white"]
-                }
-            });
-            $('#circle3').circleProgress({
-                startAngle:0.7853*6,
-                value: 0.70,
-                size: 150,
-                fill: {
-                    gradient: ["white"]
-                }
-            });
-            $('#circle4').circleProgress({
-                startAngle:0.7853*6,
-                value: 0.9,
-                size: 150,
-                fill: {
-                    gradient: ["white"]
-                }
-            });
-        }
-    });
-    </script>
 
+    <!-- main.js -->
+    <script src="js/main.js"></script>
 
 </body>
 
